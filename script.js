@@ -27,7 +27,7 @@ btAdd.addEventListener("click", () => {
     campoNome.value = " ";
 
     // Exibir mensagem de confirmação
-    setTimeout(()=>{
+    setTimeout(() => {
         mensagem.classList.remove("ocultar");
         mensagem.innerHTML = "Colaborador adicionado!";
     }, 500);
@@ -36,16 +36,16 @@ btAdd.addEventListener("click", () => {
     defineSemanas(colaboradores);
 
     // Ocultar a mensagem de confirmação e faz a listagem das semanas com os nomes
-    setTimeout(()=>{ mensagem.classList.add("ocultar"); }, 2000);
-    
+    setTimeout(() => { mensagem.classList.add("ocultar"); }, 2000);
+
     listarSemanas(colaboradores);
 
 });
 
 let btExibir = document.querySelector("#btExibir");
 
-btExibir.addEventListener("click", ()=>{
-    setTimeout(()=>{ listarSemanas(colaboradores); }, 300);
+btExibir.addEventListener("click", () => {
+    setTimeout(() => { listarSemanas(colaboradores); }, 300);
 });
 
 function defineSemanas(colaboradores) {
@@ -57,10 +57,10 @@ function defineSemanas(colaboradores) {
 
 let lista = document.querySelector("ol");
 
-function listarSemanas(colaboradores){
+function listarSemanas(colaboradores) {
     console.log("Listando as semanas...")
-    lista.innerHTML = ''    
-    colaboradores.forEach((colab)=>{
+    lista.innerHTML = ''
+    colaboradores.forEach((colab) => {
         let item = document.createElement("li");
         item.textContent = `Semana > ${colab.nome}`;
         lista.appendChild(item);
