@@ -36,22 +36,20 @@ btAdd.addEventListener("click", () => {
     defineSemanas(colaboradores);
 
     // Ocultar a mensagem de confirmação e faz a listagem das semanas com os nomes
-    setTimeout(()=>{
-        mensagem.classList.add("ocultar");
-        listarSemanas(colaboradores);
-    }, 1000);
+    setTimeout(()=>{ mensagem.classList.add("ocultar"); }, 2000);
+    
+    listarSemanas(colaboradores);
 
 });
 
 let btExibir = document.querySelector("#btExibir");
 
 btExibir.addEventListener("click", ()=>{
-    // Faz a listagem ordenada dos colaboradores e suas respectivas semanas
     setTimeout(()=>{ listarSemanas(colaboradores); }, 300);
 });
 
 function defineSemanas(colaboradores) {
-    console.log("Definindo semana e colaborador");
+    console.log("Definindo semana e colaborador...");
     for (var i = 0; i < colaboradores.length; i++) {
         console.log("Semana: " + (i + 1) + ", colaborador: " + colaboradores[i].nome);
     }
@@ -60,6 +58,7 @@ function defineSemanas(colaboradores) {
 let lista = document.querySelector("ol");
 
 function listarSemanas(colaboradores){
+    console.log("Listando as semanas...")
     lista.innerHTML = ''    
     colaboradores.forEach((colab)=>{
         let item = document.createElement("li");

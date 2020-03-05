@@ -12,10 +12,6 @@ h1{
     align-items: center;
 }
 
-#insere-colab span{
-    color: green;
-}
-
 .ocultar{
     display: none;
 }
@@ -29,6 +25,8 @@ input{
     text-align: center;
 }
 
-button{
-    margin-bottom: 10px;
+#botoes label{
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 5px;
 }
