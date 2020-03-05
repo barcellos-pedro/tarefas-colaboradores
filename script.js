@@ -62,7 +62,7 @@ function listarSemanas(colaboradores){
     lista.innerHTML = ''    
     colaboradores.forEach((colab)=>{
         let item = document.createElement("li");
-        item.textContent = `${colab.nome}`;
+        item.textContent = `Semana > ${colab.nome}`;
         lista.appendChild(item);
     })
 };
