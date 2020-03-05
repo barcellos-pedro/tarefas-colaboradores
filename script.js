@@ -1,14 +1,23 @@
-let colaboradores = [];
+let colaboradores = [
+    {
+        nome: "Pedro"
+    },
+    {
+        nome: "Ana"
+    },
+    {
+        nome: "Leandro"
+    }
+];
 
 let mensagem = document.querySelector("span");
 let btAdd = document.querySelector("#btAdd");
 
-btAdd.addEventListener("click", function () {
-    //preciso inserir os objetos, cada objeto será uma pessoa com seus atributos, nome, idade, dtadimissao, status, ferias
-    //aqui vai codigo do cesar
+btAdd.addEventListener("click", () => {
     let campoNome = document.querySelector("#txtColab");
     let nomeColab = campoNome.value;
 
+    // Adiciona como prmeiro item do array um colaborador com nome
     colaboradores.unshift(
         {
             nome: nomeColab
@@ -17,15 +26,28 @@ btAdd.addEventListener("click", function () {
 
     campoNome.value = " ";
 
+    // Exibir mensagem de confirmação
     setTimeout(()=>{
         mensagem.classList.remove("ocultar");
         mensagem.innerHTML = "Colaborador adicionado!";
     }, 500);
 
-
+    // Exibe no console as semanas e os nomes
     defineSemanas(colaboradores);
 
-    setTimeout(()=>{ mensagem.classList.add("ocultar"); }, 2000);
+    // Ocultar a mensagem de confirmação e faz a listagem das semanas com os nomes
+    setTimeout(()=>{
+        mensagem.classList.add("ocultar");
+        listarSemanas(colaboradores);
+    }, 1000);
+
+});
+
+let btExibir = document.querySelector("#btExibir");
+
+btExibir.addEventListener("click", ()=>{
+    // Faz a listagem ordenada dos colaboradores e suas respectivas semanas
+    setTimeout(()=>{ listarSemanas(colaboradores); }, 300);
 });
 
 function defineSemanas(colaboradores) {
@@ -33,4 +55,15 @@ function defineSemanas(colaboradores) {
     for (var i = 0; i < colaboradores.length; i++) {
         console.log("Semana: " + (i + 1) + ", colaborador: " + colaboradores[i].nome);
     }
+};
+
+let lista = document.querySelector("ol");
+
+function listarSemanas(colaboradores){
+    lista.innerHTML = ''    
+    colaboradores.forEach((colab)=>{
+        let item = document.createElement("li");
+        item.textContent = `${colab.nome}`;
+        lista.appendChild(item);
+    })
 };
