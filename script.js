@@ -66,3 +66,11 @@ function listarSemanas(colaboradores) {
         lista.appendChild(item);
     })
 };
+
+function adiarColaborador(colaboradores){
+    console.log("Adiando semana do coloborador...");
+    let posicao = colaboradores.indexOf(colaboradores[1]); // Pega a posição do colab antes de remove-lo com o splice
+    let removido = colaboradores.splice(1,1); // remove o colab e guarda na variavel
+    colaboradores.splice(posicao+1,0, {nome:removido[0].nome}); 
+    listarSemanas(colaboradores);
+}
